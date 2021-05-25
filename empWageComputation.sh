@@ -8,15 +8,12 @@ EMP_RATE_PER_HR=20
 
 empCheck=$(( RANDOM % 3))
 
-if [ $empCheck -eq $IS_PRESENT_FULL_TIME ]
-then
-        empHrs=8
-elif [ $empCheck -eq $IS_PRESENT_PART_TIME ]
-then
-        empHrs=4
-else
-        empHrs=0
-fi
+case $empCheck in
+        $IS_PRESENT_FULL_TIME) empHrs=8 ;;
+        $IS_PRESENT_PART_TIME) empHrs=4 ;;
+        *) empHrs=0 ;;
+esac
+
 salary=$(( empHrs * EMP_RATE_PER_HR ))
 
 echo Salary of employee is $salary
