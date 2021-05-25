@@ -24,8 +24,10 @@ do
         empHrs="$( getworkhrs $empCheck )"
         totalworkinghrs=$(( totalworkinghrs + empHrs ))
         salary=$(( empHrs * EMP_RATE_PER_HR ))
-        echo "$salary"
+     #   echo "$salary"
         ((day++))
 done
 totalsalary=$((totalworkinghrs*EMP_RATE_PER_HR))
+echo Total Working Hours:$totalworkinghrs
 echo Total Salary:$totalsalary
+
