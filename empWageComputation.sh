@@ -2,12 +2,18 @@
 
 echo Welcome to shell script
 
-isEmployeePresent=$((RANDOM%2))
+IS_PRESENT=1
 
-if [ $isEmployeePresent -eq 1 ]
+EMP_RATE_PER_HR=20
+
+empCheck=$(( RANDOM % 2 ))
+
+
+if [ $empCheck -eq $IS_PRESENT ]
 then
-	echo "Employee is present"
+        empHrs=8
+        salary=$(( EMP_RATE_PER_HR * empHrs ))
 else
-	echo "Employee is absent"
+        salary=0
 fi
-
+echo Salary of employee is $salary
